@@ -23,15 +23,12 @@ int main (void){
 		perror("fork");
 		exit(-1);
 	case (pid_t) 0:
-		printf("Hola, yo soy el hijo, y tengo PID %d. Mi padre es el
-				PID %d\n",getpid(),getppid());
+		printf("Hola, yo soy el hijo, y tengo PID %d. Mi padre es el PID %d\n",getpid(),getppid());
 		for(i=0;i<20;i++)
-			printf("Soy el proceso hijo y estoy perdiendo
-					tiempo...\n");
+			printf("Soy el proceso hijo y estoy perdiendo tiempo...\n");
 		break;
 	default:
-		printf("Hola, yo soy el padre, y tengo PID %d. Estoy
-				esperando a que mi hijo termine...\n",getpid());
+		printf("Hola, yo soy el padre, y tengo PID %d. Estoy esperando a que mi hijo termine...\n",getpid());
 		waitpid(pid,&status,0);
 		
 		/* Alternativa: la función wait(int *status) provoca

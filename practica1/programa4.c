@@ -30,8 +30,7 @@ int main (void){
 			perror("fork");
 			exit(-1);
 		case (pid_t) 0:
-			printf("Hola, yo soy el hijo, y tengo PID %d. Mi padre es el
-			PID %d\n",getpid(),getppid());
+			printf("Hola, yo soy el hijo, y tengo PID %d. Mi padre es el PID %d\n",getpid(),getppid());
 			printf("ahora ejecuto otro programa !\n");
 			av[0]=nombre;
 			av[1]=NULL;

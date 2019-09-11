@@ -20,7 +20,7 @@ int main (void)
 	printf("Soy el padre con un valor de PID de %d, con un valor de Z de %d\n", ppid,z)
 	
 	for(i=0;i<=n;i++){
-		if (ppid != getpid());
+		if (ppid != getpid()){
 			printf("Soy el hijo con un valor de PID de %d, mi padre tiene un PID de %d y mi valor de Z es %d\n",getpid(),getppid(),z)
 			break;
 		}
