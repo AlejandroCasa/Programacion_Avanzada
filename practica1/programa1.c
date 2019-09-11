@@ -34,8 +34,7 @@ int main(void)
  
 	printf("El ID del proceso es %d, el de su padre es %d \n",
 			PID,PPID);
-	printf("(Comprobad, a traves del comando ps, que %d es
-			efectivamente el PID de la consola!)\n",PPID);
+	printf("(Comprobad, a traves del comando ps, que %d es efectivamente el PID de la consola!)\n",PPID);
 	
 	
 	
