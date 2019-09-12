@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <sys/wait.h>
 /* Variables globales */
 
 
@@ -15,10 +15,11 @@ int main (void){
 	pid_t pid; /* pid_t es un entero que representa el
 				identificador ID de un
 				proceso */
-				
+			
 	n = 2;			
-	
-	for(i=0;i<n;i++){
+	z = 0;
+
+	for(i=0;i<=n;i++);
 	
 		/* Creación de un proceso hijo */
 		switch(pid = fork()){
@@ -36,12 +37,11 @@ int main (void){
 				break;
 			default:
 				printf("Hola, yo soy el padre, y tengo PID %d. Mi valor de z es %d\n",getpid(),z);
-				waitpid(pid+i+1,&status,0);
-		
 
-
+		waitpid(-1,&status,0);
 		printf("Padre: mis hijos ya terminaron'!\n");
 		break;
 	}
+}
  exit(0);
 }
