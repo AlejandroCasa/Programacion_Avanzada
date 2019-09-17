@@ -16,11 +16,17 @@ int main (void){
 				identificador ID de un
 				proceso */
 			
+	
+	//El usuario puede introducir el número de hijos
 	n = 2;			
+	
+	//Se inicia el contador del ejercicio. El valor es arbitrario
 	z = 0;
 
-	for(i=0;i<=n;i++);
-	
+	printf("Hola, yo soy el padre, y tengo PID %d. Mi valor de z es %d\n",getpid(),z);
+
+	for(i=0;i<n;i++){
+		z++;
 		/* Creación de un proceso hijo */
 		switch(pid = fork()){
 			case (pid_t) -1:
@@ -31,17 +37,14 @@ int main (void){
 				exit(-1);
 			
 			case (pid_t) 0:
-				z++;
 				printf("Hola, yo soy el hijo, y tengo PID %d. Mi padre es el PID %d y mi valor de Z es %d\n",getpid(),getppid(),z);
 				exit(EXIT_SUCCESS);
 				break;
 			default:
-				printf("Hola, yo soy el padre, y tengo PID %d. Mi valor de z es %d\n",getpid(),z);
-
-		waitpid(-1,&status,0);
-		printf("Padre: mis hijos ya terminaron'!\n");
-		break;
+				waitpid(0,&status,0);
+				break;
+		}
 	}
-}
- exit(0);
+printf("Padre: mis hijos ya terminaron'!\n");
+exit(0);
 }

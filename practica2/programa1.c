@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <unist.h>
+#include <unistd.h>
 
 int main(void){
 	
@@ -32,18 +32,18 @@ int main(void){
 		
 			if(close(fd[1]) == -1)
 				perror("close");
-				// Lectura de la información contenida en la pipe.
-				switch(nread = read(fd[0],buffer,sizeof(buffer))){
-					case -1:
-						perror("read");
-						break;
-					case 0:
-						perror("EOF");
-						break;
-					default:
-						printf("Hijo: he leido %d bytes ('%s')\n",nread,buffer);
-						exit(EXIT_SUCCESS);
-				}
+			// Lectura de la información contenida en la pipe.
+			switch(nread = read(fd[0],buffer,sizeof(buffer))){
+				case -1:
+					perror("read");
+					break;
+				case 0:
+					perror("EOF");
+					break;
+				default:
+					printf("Hijo: he leido %d bytes ('%s')\n",nread,buffer);
+					exit(EXIT_SUCCESS);
+			}
 	}
 
 	// este es el padre

@@ -1,0 +1,71 @@
+/* Programa de ejemplo del uso de pipes */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main(void){
+	
+	int fd1[2];
+    int fd2[2];
+
+
+	int status;
+	int nread;
+	char buffer[100];
+ 
+	/* Creacion de la pipe */
+
+	if(pipe(fd1) == -1){
+		perror("pipe 1");
+		exit(EXIT_FAILURE);
+	}
+	printf("Pipe 1 OK!\n");
+
+    if(pipe(fd2) == -1){
+		perror("pipe 2");
+		exit(EXIT_FAILURE);
+	}
+	printf("Pipe 2 OK!\n");
+
+	// Creacion de un proceso hijo
+	switch(fork()){
+		case -1:
+			perror("fork");
+			exit(EXIT_FAILURE);
+		case 0:
+			// este es el hijo ¡
+			// Cierre del descriptor de escritura de la pipe en el proceso hijo
+		
+			if(close(fd[1]) == -1)
+				perror("close");
+			// Lectura de la información contenida en la pipe.
+			switch(nread = read(fd[0],buffer,sizeof(buffer))){
+				case -1:
+					perror("read");
+					break;
+				case 0:
+					perror("EOF");
+					break;
+				default:
+					printf("Hijo: he leido %d bytes ('%s')\n",nread,buffer);
+					exit(EXIT_SUCCESS);
+			}
+	}
+
+	// este es el padre
+
+	/* Cierre del descriptor de lectura en el proceso padre */
+	if(close(fd[0]) ==- 1)
+		perror("close");
+
+	/* El proceso padre escribe en la pipe */
+	if(write(fd[1],"hola hijo",9) == -1)
+		perror("write");
+	/* El proceso padre espera la finalizacion del proceso hijo */
+	
+	wait(&status);
+	exit(EXIT_SUCCESS);
+}
