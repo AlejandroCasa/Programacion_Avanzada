@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vision De-Sign</title>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  </head>
+  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {font-family: Arial; background-color:#191818}
+      
+      /* Style of orderer list*/
+        ol{counter-reset: item;}
+        ol li{
+          font: 14px/21px Arial, Verdana;
+          list-style: none;
+          *list-style:decimal; /* IE7 e IE6*/
+          padding:4px 8px;
+        }
+        ol li:before {
+          display: inline-block;
+          content: counter(item) "- ";
+          counter-increment: item;
+          background-color: #323232;
+          color: #fbfbfb;
+          font: bold 16px Arial, Verdana;
+          padding: 0 4px;
+          margin: 0 4px;
+        }
+        ol li ol li:before{
+          font: bold 14px Arial, Verdana;
+          padding: 0 2px;
+        }
+            
+       /* Style the tab */
+         .tab {
+           overflow: hidden;
+           border: 1px solid #ccc;
+           background-color: #bbbbbb;
+         }
+
+       /* Style the buttons inside the tab */
+          .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+          }
+
+      /* Change background color of buttons on hover (boton sobre el que esta el cursor)*/
+        .tab button:hover {
+          background-color: #ddd;
+        }
+
+      /* Create an active/current tablink class (boton seleccionado)*/
+        .tab button.active {
+          background-color: #ccc;
+        }
+
+      /* Style the tab content */
+        .tabcontent {
+          display: none;
+          padding: 6px 30px;
+          border: 1px solid #ccc;
+          border-top: none;
+        }
+		</style>
+    <div style="text-align: center;"><img src="file:///C:/Users/hugo_/Documents/Master/Visi%C3%B3n%20por%20computador/Proyecto/Web/logo_black.PNG"
+        alt=""><br>
+    </div>
+    <div class="tab"> <button class="tablinks" onclick="openCity(event, 'proyect')">The
+        Proyect</button> <button class="tablinks" onclick="openCity(event, 'team')">The
+        Team</button> <button class="tablinks" onclick="openCity(event, 'achievement')">The
+        Achievement</button> <button class="tablinks" onclick="openCity(event, 'about')">The
+        Credit</button> </div>
+    <div id="proyect" class="tabcontent" style="color:#fff" ;="">
+      <h3>The Proyect</h3>
+      <p><br>
+        The Visio De-sign project is a work developed by four people to the
+        subject “Computer Vision”, from the Automatics and Robotics Master’s
+        degree in Universidad Politécnica de Madrid. </p>
+      <p>And, what’s it about? Well, … the field and goal could have been almost
+        anything, but in our case, we have decided to focus on street signs
+        recognition, mainly due to two factors: </p>
+      <ul>
+        <li>
+          <p>The first one is just about current technology and developments in
+            the personal vehicle industry: we need cars, among others, to be
+            smarter each day, being capable of extract information from the
+            environment and understand it like a human does.</p>
+        </li>
+        <li>
+          <p>The second one is personal: since we are tired of answering sign
+            related captcha, it would be interesting that the entity who press
+            the “I am not a robot” button is actually a robot. </p>
+        </li>
+      </ul>
+      <p> To accomplish this objective, we will be using image computing, and a
+        neural network to decide if an input contains a sign, returning its
+        location in that case.</p>
+    </div>
+    <div id="team" class="tabcontent" style="color:#fff" ;="">
+      <h3>The Team</h3>
+      <p>In this page, the people involved in the development of the algorithm
+        introduce themselves. We also give you some information about us to get
+        a little bit closer to the project. These are our lives and stories.
+        Nice to meet you!</p>
+      <hr>
+      <h4>Victor Cadix Martín</h4>
+      <h5>Occupation: Technology leader</h5>
+      <p style="line-height:25px">Aquí van las cosas de Victor</p>
+      <hr>
+      <h4>Alejandro Casa Rodríguez</h4>
+      <h5>Occupation: Programming Chief</h5>
+      <p style="line-height:25px">Aquí van las cosas de Alex</p>
+      <hr>
+      <h4>Hugo de la Quintana Béjar</h4>
+      <h5>Occupation: Executive Officer</h5>
+      <p style="line-height:25px">“I am a student from the University of Alcalá,
+        with a bachelor’s degreein Electronic Engineering and Industrial
+        Automatics. I have also a programming title of Android apps, given by
+        the EOI. I would like to start working in a job related to automatics,
+        and specifically in interface development to improve communication
+        between humans and robots in an industrial environment, also developing
+        my skills as an application designer and applying system control
+        knowledge. When I’m not meshing with job related stuff, I love going
+        cycling and hiking to the mountain. Another of my main hobbies is
+        traveling to other countries, because I can know about other cultures,
+        and that’s a point that combines too well with my major passion: beer. I
+        absolutely love finding new tastes and share these experiences with my
+        friends.”</p>
+      <blockquote>"Nada cambia, si nada cambia" -K</blockquote>
+      <hr>
+      <h4>Pablo J. Rosado Junquera</h4>
+      <h5>Occupation: Documentation</h5>
+      <p style="line-height:25px">“I am a Materials Engineer and an Energy
+        Engineer, with a great passion about mathematics and computer science. I
+        have studied programming by my own for a few years, and now I want to
+        get a title to prove these skills, and some others I expect to get in
+        the course. Talking about job, I ‘just’ hope I find motivation, being
+        that achieved through a combination of good salaries, work conditions
+        and interesting projects, because this will make me feel both important
+        to the company and encouraged to improve every single day. To achieve
+        that, I’m willing to seek abroad, as soon as I finish my current degree.
+        My free time is always spent with the people I care, with simple but
+        lovely afternoons. On the other hand, sometimes I enjoy playing online
+        videogames to chill out. I also love traveling, but I haven´t had yet
+        enough resources to visit a lot of places I would like to, so I will
+        have a long to do list in the future.”</p>
+      <blockquote>"Ironic dormouse"-A</blockquote>
+    </div>
+    <div id="achievement" class="tabcontent" style="color:#fff" ;="">
+      <h3>The Achievement</h3>
+      <h4>Update: 08/10/2019</h4>
+      <ul>
+        <li>
+          <p>In order to obtain the regions of interest, the image has been set
+            to a resolution of 20x26. This decision has been made because it is
+            the minimum amount of information needed to be able to extract the
+            relevant regions (where a signal can be) and remove uniform colour
+            areas.</p>
+        </li>
+        <li>
+          <p>The presence of white signals on the road creates a distraction. A
+            new image operation is proposed to avoid this effect. </p>
+        </li>
+        <li>
+          <p>Using this new method, a simple algorithm has been developed. It
+            works just fine with some images but returns an incorrect output
+            with some others.</p>
+        </li>
+        <li>
+          <p>Further development is needed, but it seems this is going to be
+            simple enough to get solved. Even without a neural network yet, we
+            are getting interesting results. </p>
+        </li>
+      </ul>
+      <p>Aquí van las cosas del achievement.</p>
+    </div>
+    <div id="about" class="tabcontent" style="color:#fff" ;="">
+      <h3>The Credit</h3>
+      <p>Some scientific articles: </p>
+      <ol>
+        <li>S. J. Pan and Q. Yang, “A Survey on Transfer Learning,” IEEE Trans.
+          Knowl. Data Eng., pp. 1345–1359, 2010.</li>
+        <li>M. Mathias, R. Timofte, R. Benenson, and L. Van Gool, “Traffic sign
+          recognition 2014; How far are we from the solution?,” 2013 Int. Jt.
+          Conf. Neural Networks, pp. 1–8.</li>
+        <li>C. Yao, F. Wu, H. Chen, X. Hao, and Y. Shen, “TRAFFIC SIGN
+          RECOGNITION USING HOG-SVM AND GRID SEARCH School of Electronic and
+          Information Engineering , Beijing Jiaotong University , Beijing ,
+          China,” 2014 12th Int. Conf. Signal Process., pp. 962–965, 2014.</li>
+        <li>Y. Lai, N. Wang, Y. Yang, and L. Lin, “Traffic Signs Recognition and
+          Classification based on Deep Feature Learning,” pp. 622–629, 2018.</li>
+        <li>M. R-cnn, P. Doll, and R. Girshick, “Mask R-CNN.”</li>
+        <li>S. Ren, K. He, R. Girshick, and J. Sun, “Faster R-CNN&#8239;: Towards
+          Real-Time Object Detection with Region Proposal Networks,” pp. 1–14.</li>
+        <li>W. Liu, D. Anguelov, D. Erhan, C. Szegedy, S. Reed, C. Fu, and A. C.
+          Berg, “SSD&#8239;: Single Shot MultiBox Detector.”</li>
+        <li>J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look
+          Once: Unified, Real-Time Object Detection.”</li>
+        <li>J. Redmon and A. Farhadi, “YOLO9000: Better, Faster, Stronger.”</li>
+        <li>A Novel Genetically Optimized Convolutional Neural Network for
+          Traffic Sign Recognition: A New Benchmark on Belgium and Chinese
+          Traffic Sign Datasets.</li>
+        <li>Deep Learning Traf&#64257;c Sign Detection, Recognition and Augmentation.</li>
+        <li>Total Recall: Understanding Traf&#64257;c Signs using Deep Hierarchical
+          Convolutional Neural Networks.</li>
+      </ol>
+    </div>
+    <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script> <footer>Visión por Computador - Universidad Politécnica de Madrid -
+      2019 </footer>
+  </body>
+</html>
