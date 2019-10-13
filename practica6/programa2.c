@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <pthread.h>
+#include <pthread.h> // Necesario incluir -pthread al compilar
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -37,7 +37,7 @@ void* function2(void *arg){
 	for (i=0;i<10;i++){
 		printf("\n Hello, soy el thread 2\n");
 		sleep(1);
-		if(i==3){
+		if(i==2){//Esto es un 2 para que sea a la tercera iteracion
 			// PONER AQUI EL CODIGO PARA DESBLOQUEAR EL THREAD 1
 			pthread_mutex_lock(&mut);
 			pthread_cond_signal(&cond);
@@ -56,6 +56,8 @@ int main(void){
 	pthread_t t1_id, t2_id;
 	int i,err,salida;
 	
+	printf("\n Hello, soy el proceso principal \n");
+
 	pthread_cond_init(&cond,NULL);
 	pthread_mutex_init(&mut,NULL);
 	
@@ -63,16 +65,16 @@ int main(void){
 	if (err != 0)
 		printf("\ncan't create thread : [%s]",strerror(err));
 	else
-		printf("\n Thread created successfully\n");
+		printf("\n Thread 1 created successfully\n");
 	
 	err = pthread_create(&t2_id, NULL, &function2, NULL);
 	if (err != 0)
 		printf("\ncan't create thread : [%s]",strerror(err));
 	else
-		printf("\n Thread created successfully\n");
+		printf("\n Thread 2 created successfully\n");
 	
 	
-	printf("\n Hello, soy el proceso principal \n");
+	
 	
 	salida = pthread_join(t2_id, NULL);
 	
