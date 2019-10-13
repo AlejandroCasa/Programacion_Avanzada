@@ -13,7 +13,7 @@ void* function1 (void *arg){
 
 	printf("\n Hello, soy el thread 1 y me voy a dormir...\n");
 	
-	//PONER AQUI EL CODIGO NECESARIO PARA QUE 
+	// PONER AQUI EL CODIGO NECESARIO PARA QUE 
 	// ESTE THREAD SE SUSPENDA HASTA SER DESPERTADO POR EL OTRO
 	
 	pthread_mutex_lock(&mut);
